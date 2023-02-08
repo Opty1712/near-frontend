@@ -39,8 +39,6 @@ export const useWallet: UseWallet = () => {
     connector
   ]);
 
-  console.log(balance);
-
   const disconnectWallet = () => {
     if (isClientSide) {
       window.location.replace(

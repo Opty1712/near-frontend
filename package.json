@@ -10,7 +10,7 @@
     "lint": "yarn lint:ts && yarn lint:commitlint && yarn lint:prettier && yarn lint:eslint && yarn lint:stylelint",
     "lint:ts": "tsc",
     "lint:commitlint": "yarn commitlint -c commitlint.config.js",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx ./ --color --cache",
+    "lint:eslint": "eslint -c .eslintrc.js --ext .js,.ts,.tsx ./src --color --cache",
     "lint:prettier": "prettier -c ./",
     "lint:stylelint": "stylelint **/*.{ts,tsx}",
     "test": "cross-env NODE_ENV=test jest",
@@ -43,14 +43,14 @@
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^26.0.22",
     "@types/ts-nameof": "^4.2.1",
-    "@typescript-eslint/eslint-plugin": "^4.21.0",
-    "@typescript-eslint/parser": "^4.21.0",
+    "@typescript-eslint/eslint-plugin": "5.23",
+    "@typescript-eslint/parser": "5.23",
     "babel-plugin-ts-nameof": "^4.2.1",
     "commitlint": "^12.1.1",
     "cross-env": "^7.0.3",
-    "eslint": "^7.23.0",
+    "eslint": "8.15.0",
     "eslint-config-next": "^13.1.1",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.5",
@@ -58,7 +58,7 @@
     "lint-staged": "^10.5.4",
     "next": "^13.1.1",
     "next-linaria": "^0.11.0",
-    "prettier": "^2.2.1",
+    "prettier": "2.6.2",
     "rimraf": "^3.0.2",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^21.0.0",
@@ -68,12 +68,11 @@
     "ts-nameof": "^5.0.0"
   },
   "dependencies": {
-    "@callstack/react-theme-provider": "^3.0.8",
     "antd": "^5.2.0",
     "linaria": "^4.1.11",
     "near-api-js": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   }
 }
