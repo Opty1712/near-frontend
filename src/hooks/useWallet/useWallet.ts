@@ -3,15 +3,15 @@ import { formatNearAmount } from 'near-api-js/lib/utils/format';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { isClientSide } from '../../utils';
 
-type UseWallet = () => {
+export type UseWalletResult = {
   connectWallet: VoidFunction;
   disconnectWallet: VoidFunction;
   walletAccountId: string;
-  nearTokenBalance: string;
+  walletBalance: string;
 };
 
 /** Returns wallet data and connect / disconnect methods */
-export const useWallet: UseWallet = () => {
+export const useWallet = (): UseWalletResult => {
   const [connector, setConnector] = useState<nearAPI.WalletConnection>();
   const [balance, setBalance] = useState<AccountBalance>();
 
@@ -35,9 +35,10 @@ export const useWallet: UseWallet = () => {
     }
   };
 
-  const walletAccountId = useMemo(() => connector?.getAccountId() ?? '', [
-    connector
-  ]);
+  const walletAccountId = useMemo(
+    () => connector?.getAccountId() ?? '',
+    [connector]
+  );
 
   const disconnectWallet = () => {
     if (isClientSide) {
@@ -61,13 +62,13 @@ export const useWallet: UseWallet = () => {
       .catch((error) => console.error(error));
   }, [connector, walletAccountId]);
 
-  const nearTokenBalance = getNearBalance(balance?.available);
+  const walletBalance = getNearBalance(balance?.available);
 
   return {
     connectWallet,
     walletAccountId,
     disconnectWallet,
-    nearTokenBalance
+    walletBalance
   };
 };
 type AccountBalance = Awaited<ReturnType<nearAPI.Account['getAccountBalance']>>;

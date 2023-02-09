@@ -1,15 +1,11 @@
 import { Button, Card } from 'antd';
+import { useWallet } from '../../hooks';
 import { cardClassName, Root } from './styled';
-import { useWallet } from './useWallet';
 
 /** Displays wallet info: user Id and balance */
 export const Wallet = () => {
-  const {
-    connectWallet,
-    disconnectWallet,
-    walletAccountId,
-    nearTokenBalance
-  } = useWallet();
+  const { connectWallet, disconnectWallet, walletAccountId, walletBalance } =
+    useWallet();
 
   return (
     <Root>
@@ -28,7 +24,7 @@ export const Wallet = () => {
           type="inner"
         >
           <>
-            Balance: <b>{nearTokenBalance}</b> NEAR
+            Balance: <b>{walletBalance}</b> NEAR
           </>
         </Card>
       )}
