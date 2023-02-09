@@ -4,30 +4,30 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:@next/next/recommended',
+    'plugin:@next/next/recommended'
   ],
   plugins: ['@typescript-eslint', 'import', 'react-hooks'],
   parserOptions: {
-    "warnOnUnsupportedTypeScriptVersion": false,
+    warnOnUnsupportedTypeScriptVersion: false,
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
-      modules: true,
+      modules: true
     },
-    project: ["./tsconfig.eslint.json", "./tsconfig.json"],
-    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.eslint.json', './tsconfig.json'],
+    tsconfigRootDir: __dirname
   },
   env: {
     browser: true,
     node: true,
     es6: true,
-    jest: true,
+    jest: true
   },
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   rules: {
     'no-mixed-spaces-and-tabs': 'error',
@@ -49,13 +49,13 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'error',
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'always', prev: '*', next: 'return' }
     ],
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error'],
-      },
+        allow: ['warn', 'error']
+      }
     ],
     '@typescript-eslint/explicit-module-boundary-types': 0
   },
@@ -64,8 +64,8 @@ module.exports = {
       files: ['*.js'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-      },
+        '@typescript-eslint/explicit-function-return-type': 'off'
+      }
     },
     {
       files: ['*.tsx', '*.ts'],
@@ -88,13 +88,13 @@ module.exports = {
             variables: false,
             enums: false,
             typedefs: false,
-            ignoreTypeReferences: false,
-          },
-        ],
-      },
-    },
+            ignoreTypeReferences: false
+          }
+        ]
+      }
+    }
   ],
   globals: {
-    nameof: 'readonly',
-  },
+    nameof: 'readonly'
+  }
 };

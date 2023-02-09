@@ -1,7 +1,6 @@
 # Project
 node_modules/
-.*
-!.babelrc
+
 *.log
 *.sh
 *.tsbuildinfo
@@ -18,6 +17,3 @@ yarn.lock
 *.jpg
 *.png
 *.cur
-
-# markdown
-*.md
