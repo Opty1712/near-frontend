@@ -5,7 +5,8 @@ import { RgbColor } from '../../types';
 export const ColoredPage = styled.div<{ selectedColor: RgbColor }>`
   box-sizing: border-box;
   width: 100%;
-  height: 100vh;
+  min-height: 600px;
+  min-width: 300px;
   display: flex;
   align-items: center;
 
@@ -15,6 +16,8 @@ export const ColoredPage = styled.div<{ selectedColor: RgbColor }>`
   @media screen and (max-width: ${mobileBreakPoint}) {
     flex-direction: column;
     justify-content: space-around;
+    padding: 50px 0;
+    overflow: auto;
   }
 `;
 

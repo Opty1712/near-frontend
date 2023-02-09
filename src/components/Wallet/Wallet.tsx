@@ -14,7 +14,7 @@ export const Wallet = () => {
         type="primary"
         className={buttonClassName}
       >
-        {walletAccountId ? 'Disconnect from Near' : 'Connect to NEAR'}
+        {walletAccountId ? 'Disconnect from NEAR' : 'Connect to NEAR'}
       </Button>
 
       {walletAccountId && (
