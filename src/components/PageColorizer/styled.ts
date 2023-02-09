@@ -14,8 +14,7 @@ export const ColoredPage = styled.div<{ selectedColor: RgbColor }>`
 
   @media screen and (max-width: ${mobileBreakPoint}) {
     flex-direction: column;
-    justify-content: space-between;
-    padding: 50px 0;
+    justify-content: space-around;
   }
 `;
 
