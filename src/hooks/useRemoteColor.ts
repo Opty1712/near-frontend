@@ -4,13 +4,13 @@ import { useWalletContext } from '../context';
 import { RgbColor } from '../types';
 
 export const useRemoteColor = (): ColorMethods => {
-  const { connector } = useWalletContext();
+  const { connector, walletAccountId } = useWalletContext();
   const [colorMethods, setColorMethods] = useState<ColorMethods>({});
 
   useEffect(() => {
     const account = connector?.account();
 
-    if (!account) {
+    if (!account || !walletAccountId) {
       return;
     }
 
@@ -24,7 +24,7 @@ export const useRemoteColor = (): ColorMethods => {
     }) as unknown as nearAPI.Contract & ColorMethods;
 
     setColorMethods({ get: contract.get, set: contract.set });
-  }, [connector]);
+  }, [connector, walletAccountId]);
 
   return { ...colorMethods };
 };

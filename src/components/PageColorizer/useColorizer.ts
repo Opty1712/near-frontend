@@ -7,6 +7,8 @@ export const useColorizer = () => {
   const { get, set } = useRemoteColor();
   const [selectedColor, setSelectedColor] = useState<RgbColor>(initialColor);
 
+  const setRemoteColor = () => set?.(selectedColor);
+
   const getRemoteColor = useCallback(
     async () =>
       get?.()
@@ -18,9 +20,6 @@ export const useColorizer = () => {
   useEffect(() => {
     getRemoteColor();
   }, [getRemoteColor]);
-
-  const { r, g, b } = selectedColor;
-  const setRemoteColor = () => set?.({ r, g, b });
 
   const getOnInputChangeHandler =
     (part: keyof RgbColor) => (event: ChangeEvent<HTMLInputElement>) => {
