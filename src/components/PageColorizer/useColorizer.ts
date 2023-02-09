@@ -23,7 +23,13 @@ export const useColorizer = () => {
 
   const getOnInputChangeHandler =
     (part: keyof RgbColor) => (event: ChangeEvent<HTMLInputElement>) => {
-      setSelectedColor((value) => ({ ...value, [part]: event.target.value }));
+      const incomingValue = event.target.value;
+      const newPartValue = Number(incomingValue.replace(onlyDigits, ''));
+
+      setSelectedColor((value) => ({
+        ...value,
+        [part]: newPartValue > maxValue ? maxValue : newPartValue
+      }));
     };
 
   return {
@@ -40,3 +46,7 @@ const initialColor: RgbColor = {
   g: 255,
   b: 255
 };
+
+const maxValue = 255;
+
+const onlyDigits = /[^\d]/g;

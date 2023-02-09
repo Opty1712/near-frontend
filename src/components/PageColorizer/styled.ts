@@ -42,7 +42,7 @@ export const Input = styled.input`
   height: 50px;
   width: 50px;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   border-color: #eee;
 `;
 

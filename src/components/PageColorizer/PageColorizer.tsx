@@ -31,13 +31,18 @@ export const PageColorizer: FC<PageColorizerProps> = ({ children }) => {
           <RgbColorPicker color={selectedColor} onChange={setSelectedColor} />
 
           <Inputs>
-            {getKeys(selectedColor).map((key) => (
-              <Input
-                key={key}
-                value={selectedColor[key]}
-                onChange={getOnInputChangeHandler(key)}
-              />
-            ))}
+            {getKeys(selectedColor).map((key) => {
+              return (
+                <Input
+                  key={key}
+                  type="number"
+                  min={0}
+                  max={255}
+                  value={Number(selectedColor[key])}
+                  onChange={getOnInputChangeHandler(key)}
+                />
+              );
+            })}
           </Inputs>
 
           <Buttons>
