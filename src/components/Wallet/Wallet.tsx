@@ -1,6 +1,6 @@
 import { Button, Card } from 'antd';
 import { useWalletContext } from '../../context';
-import { cardClassName, Root } from './styled';
+import { buttonClassName, cardClassName, Root } from './styled';
 
 /** Displays wallet info: user Id and balance */
 export const Wallet = () => {
@@ -12,6 +12,7 @@ export const Wallet = () => {
       <Button
         onClick={walletAccountId ? disconnectWallet : connectWallet}
         type="primary"
+        className={buttonClassName}
       >
         {walletAccountId ? 'Disconnect from Near' : 'Connect to NEAR'}
       </Button>

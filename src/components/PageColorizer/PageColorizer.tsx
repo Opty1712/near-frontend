@@ -24,6 +24,8 @@ export const PageColorizer: FC<PageColorizerProps> = ({ children }) => {
 
   return (
     <ColoredPage selectedColor={selectedColor}>
+      {children}
+
       {walletAccountId && (
         <Root>
           <RgbColorPicker color={selectedColor} onChange={setSelectedColor} />
@@ -48,7 +50,6 @@ export const PageColorizer: FC<PageColorizerProps> = ({ children }) => {
           </Buttons>
         </Root>
       )}
-      {children}
     </ColoredPage>
   );
 };

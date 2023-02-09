@@ -1,7 +1,9 @@
 import { styled } from 'linaria/react';
+import { mobileBreakPoint } from '../../constants';
 import { RgbColor } from '../../types';
 
 export const ColoredPage = styled.div<{ selectedColor: RgbColor }>`
+  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -9,6 +11,12 @@ export const ColoredPage = styled.div<{ selectedColor: RgbColor }>`
 
   background-color: ${({ selectedColor: { b, g, r } }) =>
     `rgb(${r},${g},${b})`};
+
+  @media screen and (max-width: ${mobileBreakPoint}) {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
 `;
 
 export const Root = styled.div`
