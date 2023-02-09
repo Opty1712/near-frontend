@@ -26,6 +26,7 @@ export const Inputs = styled.div`
   justify-content: space-between;
   margin-top: 10px;
 `;
+
 export const Input = styled.input`
   border-radius: 5px;
   height: 50px;
@@ -33,4 +34,10 @@ export const Input = styled.input`
   text-align: center;
   font-size: 30px;
   border-color: #eee;
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 `;

@@ -1,11 +1,11 @@
 import { Button, Card } from 'antd';
-import { useWallet } from '../../hooks';
+import { useWalletContext } from '../../context';
 import { cardClassName, Root } from './styled';
 
 /** Displays wallet info: user Id and balance */
 export const Wallet = () => {
   const { connectWallet, disconnectWallet, walletAccountId, walletBalance } =
-    useWallet();
+    useWalletContext();
 
   return (
     <Root>

@@ -8,6 +8,7 @@ export type UseWalletResult = {
   disconnectWallet: VoidFunction;
   walletAccountId: string;
   walletBalance: string;
+  connector?: nearAPI.WalletConnection;
 };
 
 /** Returns wallet data and connect / disconnect methods */
@@ -68,7 +69,8 @@ export const useWallet = (): UseWalletResult => {
     connectWallet,
     walletAccountId,
     disconnectWallet,
-    walletBalance
+    walletBalance,
+    connector
   };
 };
 type AccountBalance = Awaited<ReturnType<nearAPI.Account['getAccountBalance']>>;

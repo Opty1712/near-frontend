@@ -1,2 +1,2 @@
-export { useWallet } from './useWallet';
-export type { UseWalletResult } from './useWallet';
+export type { UseWalletResult } from '../context/useWallet';
+export { useRemoteColor } from './useRemoteColor';

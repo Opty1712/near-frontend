@@ -1,5 +1,5 @@
 import { createContext, FC, ReactNode, useContext } from 'react';
-import { useWallet, UseWalletResult } from '../hooks';
+import { useWallet, UseWalletResult } from './useWallet';
 
 export type WalletContextState = UseWalletResult;
 
@@ -7,7 +7,8 @@ const initialValue: WalletContextState = {
   connectWallet: () => void 0,
   disconnectWallet: () => void 0,
   walletAccountId: '',
-  walletBalance: ''
+  walletBalance: '',
+  connector: void 0
 };
 
 const WalletContextContext = createContext<WalletContextState>(initialValue);
@@ -22,8 +23,13 @@ type WalletContextProviderProps = {
 export const WalletContextProvider: FC<WalletContextProviderProps> = ({
   children
 }) => {
-  const { connectWallet, disconnectWallet, walletBalance, walletAccountId } =
-    useWallet();
+  const {
+    connectWallet,
+    disconnectWallet,
+    walletBalance,
+    walletAccountId,
+    connector
+  } = useWallet();
 
   return (
     <WalletContextContext.Provider
@@ -31,7 +37,8 @@ export const WalletContextProvider: FC<WalletContextProviderProps> = ({
         connectWallet,
         disconnectWallet,
         walletBalance,
-        walletAccountId
+        walletAccountId,
+        connector
       }}
     >
       {children}
