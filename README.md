@@ -1,4 +1,4 @@
-# Test Near frontend app
+# Near frontend app
 
 1. Connect your wallet to NEAR blockchain
 2. Using contract show current saved color in the blockchain
